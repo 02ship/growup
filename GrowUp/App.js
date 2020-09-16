@@ -8,9 +8,6 @@ import AddItem from './components/AddItem';
 
 const App = () => {
   const [items, setItems] = useState([
-      {id: uuidv4(), text: 'Sweep'},
-      {id: uuidv4(), text: 'Mop'},
-      {id: uuidv4(), text: 'Dust'},
   ]);
 
   const deleteItem = (id) => {
@@ -21,7 +18,7 @@ const App = () => {
 
   const addItem = text => {
     if(!text) {
-      Alert.alert('Error', 'please enter a task', {text: 'Ok'})
+      Alert.alert('Error', 'Please enter a task', {text: 'Ok'})
     } else {
       setItems(prevItems => {
         return [{id: uuidv4(), text}, ...prevItems];
