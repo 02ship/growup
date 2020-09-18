@@ -1,3 +1,6 @@
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import React, {useState} from 'react';
 import { View, Text, StyleSheet, ListView, FlatList, Alert } from 'react-native';
 import { v4 as uuidv4 } from 'uuid';
@@ -31,21 +34,23 @@ const App = () => {
       return prevItems.map(item => {
         if(id === item.id) {
           item.completed = !item.completed
-        } 
+        }
         return item;
       });
     });
   }
 
   return (
-    <View style={styles.container}>
-      <Header />
-      <AddItem addItem={addItem} />
-      <FlatList
-        data={items}
-        renderItem={({item}) => <ListItem completeItem={completeItem} item={item} deleteItem={deleteItem} />}
-      />
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <Header />
+        <AddItem addItem={addItem} />
+        <FlatList
+          data={items}
+          renderItem={({item}) => <ListItem completeItem={completeItem} item={item} deleteItem={deleteItem} />}
+        />
+      </View>
+    </NavigationContainer>
   );
 };
 
