@@ -24,7 +24,6 @@ it('should match snapshot', () => {
 it('has placeholder text', () => {
   const rendered = render(<AddItem />);
   const textComponent = rendered.getByTestId('test-placeholder')
-  console.log(textComponent.props.style);
   expect(textComponent.props.placeholder).toEqual('Add Task...')
   expect(textComponent.props.style).toEqual({ height: 60, padding: 8, fontSize: 16 })
 });

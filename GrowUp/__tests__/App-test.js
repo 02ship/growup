@@ -1,5 +1,6 @@
 /**
  * @format
+ * @jest-environment jsdom
  */
 
 import 'react-native';
@@ -10,6 +11,12 @@ import { shallow, mount } from 'enzyme';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import {render, cleanup} from 'react-native-testing-library';
+import jsdom from 'jsdom'
+
+const { JSDOM } = jsdom;
+
+const { document } = (new JSDOM('')).window;
+global.document = document;
 
 afterEach(cleanup);
 
@@ -22,10 +29,9 @@ it('should match snapshot', () => {
   expect(result).toMatchSnapshot();
 });
 
-// it('can add an item', () =>{
-//   const rendered = mount(<App />);
-//   console.log(rendered);
-//   console.log(rendered.instance());
-//   const task = rendered.instance().addItem("sweep");
-//   expect();
-// })
+it('can add an item', () =>{
+  const rendered = mount(<App />);
+  console.log(rendered.find(addItem))
+  const task = rendered.instance().addItem("sweep");
+  expect();
+})
