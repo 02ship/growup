@@ -42,7 +42,7 @@ const HomeScreen = ({ route, navigation}) => {
     <View style={styles.container}>
        <Header />
        <Image source={require('./gifs/grow_up_10_progress.gif')} />
-       <Text>{route.params.completedItems()}</Text>
+       <Text>{route.params.completedItems}</Text>
        <Button
         title="Go to Tasks"
         onPress={() => navigation.navigate('Task')}

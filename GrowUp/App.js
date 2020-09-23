@@ -10,6 +10,7 @@ import ListItem from './components/ListItem';
 import AddItem from './components/AddItem';
 import HomeScreen from './HomeScreen';
 import TaskScreen from './TaskScreen';
+import NoteScreen from './NoteScreen';
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} initialParams={{ completedItems: 0 }}/>
         <Stack.Screen name="Task" component={TaskScreen} />
+        <Stack.Screen name="Note" component={NoteScreen} />
       </Stack.Navigator>
     </NavigationContainer>
     // <View style={styles.container}>
