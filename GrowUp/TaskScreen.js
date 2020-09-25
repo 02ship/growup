@@ -50,9 +50,8 @@ const TaskScreen = () => {
     setItems(prevItems => {
       return prevItems.map((item) => {
         if(id === item.id) {
-          item.completed = !item.completed
+          changeData(id)
         }
-        changeData(id)
         return item;
       });
     });
@@ -62,6 +61,7 @@ const TaskScreen = () => {
     try {
       items.map((entry) => {
         if (id === entry.id) {
+          console.log('here')
           entry.completed = !entry.completed
           storeData(entry)
         }
